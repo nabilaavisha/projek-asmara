@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Untuk {{ nama }}</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(135deg, #ffeef2, #fff7fa);
+            color: #444;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffcce0;
+            padding: 20px 0;
+            box-shadow: 0 4px 10px rgba(255, 182, 193, 0.4);
+        }
+
+        header h1 {
+            margin: 0;
+            color: #d6336c;
+            font-size: 36px;
+            text-shadow: 1px 1px white;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 10px 18px;
+            text-decoration: none;
+            color: white;
+            background-color: #ff69b4;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            position: relative;
+        }
+
+        nav a:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+
+        nav a:active {
+            transform: scale(0.95);
+        }
+
+        .heart-pop {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            opacity: 0;
+            animation: popUp 0.6s ease-out;
+        }
+
+        @keyframes popUp {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -10px) scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -40px) scale(0.5);
+            }
+        }
+
+        main {
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: #ffcce0;
+            margin: 20px 0;
+            width: 80%;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ma boo ❤️</h1>
+        <nav>
+            <a href="/" onclick="showHeart(event)">🏠 Beranda</a>
+            <a href="/wishlist" onclick="showHeart(event)">🎀 Wishlist</a>
+            <a href="/musik" onclick="showHeart(event)">🎵 Musik</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+         <div class="envelope-box" onclick="openEnvelope(this)">
+    <div class="envelope-top"></div>
+    <div class="envelope-bottom">
+    </main>
+
+    <footer>
+        Diri queen kesayangan mu 💌🌷
+    </footer>
+
+    <script>
+        function showHeart(event) {
+            const heart = document.createElement('div');
+            heart.className = 'heart-pop';
+            heart.innerHTML = '💖';
+            event.target.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 600);
+        }
+    </script>
+</body>
+</html>

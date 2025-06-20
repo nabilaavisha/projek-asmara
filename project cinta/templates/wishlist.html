@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>🎀 ur Wishlist? 🎀</h2>
+
+<div class="note-box">
+    <ul class="checklist">
+       <li><input type="checkbox" onchange="playPop(this)"> Nonton konser bareng 🎤🎶</li>
+    <li><input type="checkbox" onchange="playPop(this)"> Piknik sore di taman bunga 🌸🧺</li>
+    <li><input type="checkbox" onchange="playPop(this)"> Late night drive 🌙</li>
+    <li><input type="checkbox" onchange="playPop(this)"> Makan malam di rooftop resto 🍝🌃</li>
+    <li><input type="checkbox" onchange="playPop(this)"> Mountain date 🏔️</li>
+    <li><input type="checkbox" onchange="playPop(this)"> family time🎉🍻</li>
+    </ul>
+</div>
+
+<!-- Suara pop -->
+<audio id="popSound" src="{{ url_for('static', filename='pop.mp3') }}"></audio>
+
+<style>
+    .note-box {
+        background-color: #fff0f6;
+        border: 2px dashed #ff99cc;
+        border-radius: 20px;
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+        text-align: left;
+        font-family: 'Comic Sans MS', cursive;
+        box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+    }
+
+    .checklist {
+        list-style: none;
+        padding: 0;
+    }
+
+    .checklist li {
+        padding: 10px;
+        margin-bottom: 8px;
+        background-color: #ffe6f0;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        transition: transform 0.2s ease;
+    }
+
+    .checklist li.checked {
+        transform: scale(1.05) rotate(-1deg);
+        background-color: #ffcbe6;
+        font-weight: bold;
+        color: #d6336c;
+    }
+
+    .checklist input[type="checkbox"] {
+        transform: scale(1.4);
+        accent-color: #ff66a3;
+    }
+</style>
+
+<script>
+    function playPop(checkbox) {
+        const li = checkbox.parentElement;
+        const sound = document.getElementById("popSound");
+        sound.currentTime = 0;
+        sound.play();
+
+        if (checkbox.checked) {
+            li.classList.add("checked");
+        } else {
+            li.classList.remove("checked");
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="envelope-container">
+  <div class="envelope">
+    <div class="flap"></div>
+    <div class="letter hidden" id="letter">
+      <h2>Hai ma boo!</h2>
+      <p>
+        terasa indah dan manis kalau diingat bagaimana kita bertemu? bagaimana kita bercanda dan tertawa? aku rindu tawamu, suaramu, dan kamu yang ada di sampingku. Kamu apa kabar? bagaimana perasaanmu pas baca kalimat-kalimat untuk mengingat awal mula kita?<br><br>
+
+        Menjadikan suasana indah jika bersama, terasa tenang jika bersamaan. Kalau kata orang-orang dunia serasa milik berdua—nyata benar. Aku mungkin nggak pandai berkata-kata, tapi aku pandai mengusahakan. WAKTU—aku selalu usahakan. Karena tujuannya: kamu.<br><br>
+
+        Bahagia bisa mengenal orang sepertimu. Suatu saat nanti akan ada pertimbangan yang benar-benar dipikirkan... untuk tujuan yang sejalan. NAMUN?? Apakah kita sejalan? Kau memang tujuan, tapi aku berpikir lagi untuk jangka panjang. Jika kau pergi demi kebahagiaanmu, aku akan tetap ikut bahagia. Tapi tolong, cari pilihan terbaik. 💖💖💖
+      </p>
+      <p><em>-aku si queen kesayanganmu.</em></p>
+    </div>
+    <button onclick="bukaSurat()">💌 Buka Surat</button>
+  </div>
+</div>
+
+<style>
+  .envelope-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .envelope {
+    background-color: #ffe4e1;
+    border: 3px solid #ffb6c1;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
+    font-family: 'Comic Sans MS', cursive;
+    max-width: 700px;
+  }
+
+  .letter {
+    background-color: #fff;
+    border: 2px dashed #ff69b4;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    display: none;
+    animation: fadeIn 1s ease forwards;
+    text-align: left;
+  }
+
+  .letter h2 {
+    color: #ff1493;
+  }
+
+  .letter p {
+    line-height: 1.6;
+    color: #333;
+  }
+
+  button {
+    background-color: #ff69b4;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  button:hover {
+    background-color: #ff1493;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+</style>
+
+<script>
+  function bukaSurat() {
+    document.getElementById("letter").style.display = "block";
+  }
+</script>
+{% endblock %}
